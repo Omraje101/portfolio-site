@@ -14,7 +14,7 @@ export function Experience() {
             className="grid gap-6 border-t border-line pt-8 md:grid-cols-12 md:gap-10"
           >
             <div className="md:col-span-4">
-              <p className="font-mono text-sm text-muted">{job.period}</p>
+              <p className="text-sm font-medium tabular-nums text-muted">{job.period}</p>
               <p className="mt-1 text-sm text-muted">{job.mode}</p>
             </div>
             <div className="md:col-span-8">

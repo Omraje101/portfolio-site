@@ -19,7 +19,7 @@ export function ExternalLink({
         size={16}
         weight="bold"
         aria-hidden
-        className="text-accent transition-transform duration-200 ease-(--ease-out) group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+        className="motion-nudge text-accent transition-transform duration-200 ease-(--ease-out) group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
       />
       <span className="sr-only"> (opens in a new tab)</span>
     </a>

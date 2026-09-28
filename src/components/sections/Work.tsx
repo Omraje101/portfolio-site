@@ -11,7 +11,7 @@ export function Work() {
         Selected work
       </h2>
       <p className="mt-4 max-w-[52ch] text-lede text-muted">
-        Three apps I built and shipped, from the database schema to the interface.
+        Three full-stack apps, each one live and open source.
       </p>
 
       <div className="mt-14 flex flex-col gap-24 md:mt-20 md:gap-32">

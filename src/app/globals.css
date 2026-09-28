@@ -108,6 +108,15 @@
     text-wrap: pretty;
   }
 
+  html {
+    scrollbar-color: var(--line-strong) var(--bg);
+  }
+
+  input,
+  textarea {
+    caret-color: var(--accent);
+  }
+
   ::selection {
     background: var(--accent);
     color: var(--accent-ink);
@@ -177,13 +186,18 @@
   }
 }
 
+/*
+ * Reduced motion removes movement (press scale, hover nudges, slide-ins)
+ * but keeps colour and opacity changes, which still explain state.
+ * Motion-driven components handle their own fallback via useReducedMotion.
+ */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .pressable:active {
+    transform: none;
+  }
+
+  .motion-nudge {
+    translate: none !important;
   }
 }
 

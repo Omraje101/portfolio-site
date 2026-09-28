@@ -72,7 +72,7 @@ export const hero = {
   // U+2011 is a non-breaking hyphen, so "full-stack" never splits across lines.
   headline: "I build full‑stack web apps, end to end.",
   subtext:
-    "REST APIs, auth and databases through to polished, responsive interfaces. MERN and Next.js, based in Pune.",
+    "I’m Om Waghmare, a MERN and Next.js developer in Pune, taking apps from REST APIs and auth to responsive interfaces.",
   /** The layers drawn in the hero cross-section, top (what users see) to bottom. */
   stack: [
     { layer: "Interface", tech: ["React", "Next.js", "Tailwind CSS"] },
@@ -85,7 +85,7 @@ export const hero = {
 export const about = {
   paragraphs: [
     "I build and ship full-stack web apps end to end: REST APIs, auth and databases through to polished, responsive UIs.",
-    "Most of my work lives in the MERN stack and Next.js with TypeScript. I like owning a feature from the schema to the last hover state, and I test the parts that decide things.",
+    "Most of my work is in the MERN stack and in Next.js with TypeScript. I like owning a feature all the way through: the data model, the API, and the interface people use.",
   ],
   availability:
     "Open to full stack and frontend developer roles, and to freelance work.",

@@ -41,7 +41,7 @@ export function About() {
             <dt className="text-sm text-muted">Education</dt>
             <dd className="mt-1 font-medium">{about.education.degree}</dd>
             <dd className="text-muted">{about.education.school}</dd>
-            <dd className="font-mono text-sm text-muted">{about.education.years}</dd>
+            <dd className="text-sm tabular-nums text-muted">{about.education.years}</dd>
           </div>
           <div>
             <dt className="text-sm text-muted">Based in</dt>

@@ -12,12 +12,9 @@ export function Hero() {
       className="container-page grid items-center gap-12 pb-20 pt-12 md:pt-20 lg:min-h-[calc(100dvh-4rem)] lg:grid-cols-12 lg:gap-8 lg:pb-24 lg:pt-16"
     >
       <div className="lg:col-span-7">
-        <p className="text-[0.9375rem] font-medium text-muted">
-          {site.name}, {site.role.toLowerCase()}
-        </p>
         <h1
           id="hero-title"
-          className="mt-5 max-w-[17ch] text-display font-semibold"
+          className="max-w-[17ch] text-display font-semibold"
         >
           {hero.headline}
         </h1>

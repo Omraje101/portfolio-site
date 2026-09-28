@@ -2,7 +2,9 @@
 
 import {
   animate,
-  motion,
+  domAnimation,
+  LazyMotion,
+  m,
   useMotionValue,
   useReducedMotion,
   useScroll,
@@ -65,21 +67,23 @@ export function StackDiagram({
   const height = n * SLAB + (n - 1) * GAP;
 
   return (
-    <figure ref={ref} className="w-full">
-      <figcaption className="sr-only">{label}</figcaption>
-      <div className="relative" style={{ height }}>
-        {/* Alignment lines between slabs, the dashed "bolts" of an exploded view. */}
-        {layers.slice(0, -1).map((_, i) => (
-          <Connector key={`c-${i}`} index={i} progress={progress} />
-        ))}
-
-        <ol className="relative h-full">
-          {layers.map((layer, i) => (
-            <Slab key={layer.layer} layer={layer} index={i} count={n} progress={progress} />
+    <LazyMotion features={domAnimation} strict>
+      <figure ref={ref} className="w-full">
+        <figcaption className="sr-only">{label}</figcaption>
+        <div className="relative" style={{ height }}>
+          {/* Alignment lines between slabs, the dashed "bolts" of an exploded view. */}
+          {layers.slice(0, -1).map((_, i) => (
+            <Connector key={`c-${i}`} index={i} progress={progress} />
           ))}
-        </ol>
-      </div>
-    </figure>
+
+          <ol className="relative h-full">
+            {layers.map((layer, i) => (
+              <Slab key={layer.layer} layer={layer} index={i} count={n} progress={progress} />
+            ))}
+          </ol>
+        </div>
+      </figure>
+    </LazyMotion>
   );
 }
 
@@ -102,9 +106,9 @@ function Slab({
   const isTop = index === 0;
 
   return (
-    <motion.li
+    <m.li
       style={{ transform, zIndex: count - index, height: SLAB }}
-      className={`absolute inset-x-0 top-0 flex flex-col justify-center gap-1 rounded border bg-surface px-4 will-change-transform ${
+      className={`absolute inset-x-0 top-0 flex flex-col justify-center gap-1 rounded border bg-surface px-4 ${
         isTop ? "border-accent" : "border-line-strong/60"
       }`}
     >
@@ -114,7 +118,7 @@ function Slab({
           <span key={t}>{t}</span>
         ))}
       </span>
-    </motion.li>
+    </m.li>
   );
 }
 
@@ -123,13 +127,13 @@ function Connector({ index, progress }: { index: number; progress: MotionValue<n
   const top = (index + 1) * SLAB + index * GAP;
 
   return (
-    <motion.div
+    <m.div
       aria-hidden
       style={{ opacity, top, height: GAP }}
       className="pointer-events-none absolute inset-x-6 flex justify-between"
     >
       <span className="h-full border-l border-dashed border-line-strong" />
       <span className="h-full border-l border-dashed border-line-strong" />
-    </motion.div>
+    </m.div>
   );
 }

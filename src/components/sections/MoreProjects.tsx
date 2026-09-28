@@ -28,7 +28,7 @@ export function MoreProjects() {
               </p>
             )}
             <p className="mt-2 max-w-[52ch] text-muted">{project.summary}</p>
-            <p className="mt-3 font-mono text-[0.8125rem] text-muted">
+            <p className="mt-3 text-sm text-muted">
               {project.tags.join(", ")}
             </p>
             <div className="mt-3 flex gap-6">
