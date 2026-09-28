@@ -9,14 +9,16 @@ export function NavLinks({ items }: { items: Item[] }) {
   const [active, setActive] = useState<string | null>(null);
 
   useEffect(() => {
-    const sections = items
-      .map((i) => document.querySelector<HTMLElement>(i.href))
-      .filter((el): el is HTMLElement => el !== null);
+    // Every section declares which nav item it belongs to via data-nav
+    // ("" for sections with no nav entry, e.g. the hero and skills).
+    const sections = document.querySelectorAll<HTMLElement>("section[data-nav]");
 
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) setActive(`#${entry.target.id}`);
+          if (entry.isIntersecting) {
+            setActive((entry.target as HTMLElement).dataset.nav || null);
+          }
         }
       },
       // A thin band just below the nav decides which section is "current".
@@ -25,7 +27,7 @@ export function NavLinks({ items }: { items: Item[] }) {
 
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, [items]);
+  }, []);
 
   return (
     <ul className="flex items-center gap-1">

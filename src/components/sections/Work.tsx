@@ -6,7 +6,7 @@ import { StackDiagram } from "@/components/work/StackDiagram";
 
 export function Work() {
   return (
-    <section id="work" aria-labelledby="work-title" className="container-page py-20 md:py-28">
+    <section id="work" data-nav="#work" aria-labelledby="work-title" className="container-page py-20 md:py-28">
       <h2 id="work-title" className="text-h2 font-semibold">
         Selected work
       </h2>

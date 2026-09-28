@@ -7,6 +7,7 @@ export function Hero() {
   return (
     <section
       id="top"
+      data-nav=""
       aria-labelledby="hero-title"
       className="container-page grid items-center gap-12 pb-20 pt-12 md:pt-20 lg:min-h-[calc(100dvh-4rem)] lg:grid-cols-12 lg:gap-8 lg:pb-24 lg:pt-16"
     >

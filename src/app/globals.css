@@ -19,6 +19,7 @@
   --accent: #2743e8;
   --accent-ink: #ffffff;
   --accent-tint: #e3e8fd;
+  --danger: #b42424;
 
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -36,6 +37,7 @@
   --accent: #6f86ff;
   --accent-ink: #0d1016;
   --accent-tint: #18203a;
+  --danger: #ff8a8a;
 
   color-scheme: dark;
 }
@@ -50,6 +52,7 @@
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
   --color-accent-tint: var(--accent-tint);
+  --color-danger: var(--danger);
 
   --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
