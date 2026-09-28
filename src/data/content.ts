@@ -55,8 +55,8 @@ export const site = {
   role: "Full Stack Developer",
   focus: "MERN & Next.js",
   location: "Pune, India",
-  // Change this once you connect a custom domain.
-  url: "https://om-portfolio-september.vercel.app",
+  // Production URL on Vercel. Change this if you connect a custom domain.
+  url: "https://portfolio-site-om-2885.vercel.app",
   email: "omrajewaghmare6969@gmail.com",
   resume: "/Om_Waghmare_Resume.pdf",
   photo: "/photo.png",
