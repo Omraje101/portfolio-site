@@ -23,7 +23,7 @@ export default function Icon() {
           alignItems: "center",
           justifyContent: "center",
           gap: 5,
-          background: "#2743e8",
+          background: "#a64b07",
           borderRadius: 12,
         }}
       >

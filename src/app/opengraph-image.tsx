@@ -5,12 +5,12 @@ export const alt = `${site.name}, ${site.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const INK = "#e6e9ee";
-const MUTED = "#9aa3b2";
-const BG = "#0d1016";
-const SURFACE = "#141821";
-const LINE = "#626b7d";
-const ACCENT = "#6f86ff";
+const INK = "#e8eaed";
+const MUTED = "#9ca3af";
+const BG = "#111418";
+const SURFACE = "#191d23";
+const LINE = "#636b78";
+const ACCENT = "#f5a524";
 
 export default function OpengraphImage() {
   return new ImageResponse(

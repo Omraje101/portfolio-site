@@ -4,22 +4,24 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /*
- * Cross-Section tokens.
- * All text pairs are WCAG AA or better in both themes:
- * ink/bg 15.6, muted/bg 7.0 (light) / 7.5 (dark), accent/bg 6.0 / 5.9.
+ * Saffron Slate tokens.
+ * Text pairs, WCAG AA or better in both themes:
+ *   light: ink/bg 15.3, muted/bg 6.9, accent/bg 5.1, white on accent 5.8
+ *   dark:  ink/bg 15.3, muted/bg 7.3, accent/bg 9.1, bg on accent 9.1
  * --line is a decorative hairline; --line-strong meets 3:1 for control borders.
  */
 :root {
-  --bg: #eef0f3;
-  --surface: #f7f8fa;
-  --ink: #15181e;
-  --muted: #4a5160;
-  --line: #c9ced6;
+  --bg: #eef0f2;
+  --surface: #f8f9fa;
+  --ink: #161a1f;
+  --muted: #4b5260;
+  --line: #cfd3d9;
   --line-strong: #7f8694;
-  --accent: #2743e8;
+  --accent: #a64b07;
   --accent-ink: #ffffff;
-  --accent-tint: #e3e8fd;
+  --accent-tint: #fbebd9;
   --danger: #b42424;
+  --shadow-tint: 22 26 31;
 
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -28,16 +30,17 @@
 }
 
 .dark {
-  --bg: #0d1016;
-  --surface: #141821;
-  --ink: #e6e9ee;
-  --muted: #9aa3b2;
-  --line: #262c38;
-  --line-strong: #626b7d;
-  --accent: #6f86ff;
-  --accent-ink: #0d1016;
-  --accent-tint: #18203a;
+  --bg: #111418;
+  --surface: #191d23;
+  --ink: #e8eaed;
+  --muted: #9ca3af;
+  --line: #2a2f37;
+  --line-strong: #636b78;
+  --accent: #f5a524;
+  --accent-ink: #111418;
+  --accent-tint: #2a2114;
   --danger: #ff8a8a;
+  --shadow-tint: 0 0 0;
 
   color-scheme: dark;
 }
