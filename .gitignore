@@ -40,6 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-
 # original screenshot captures (optimised copies live in public/screenshots)
 .screenshot-originals/
