@@ -71,7 +71,7 @@ const PROJECTS = [
     description:
       "A full-stack MERN app that analyzes public GitHub repositories and uses Google's Gemini API to generate professional README documentation, complete with a live Markdown editor and preview.",
     tech: ["React", "Node.js", "Express", "MongoDB", "Gemini API", "JWT"],
-    link: "https://github.com/Omraje101",
+    link: "https://github.com/Omraje101/readme_ai",
     featured: true,
   },
   {
@@ -80,7 +80,7 @@ const PROJECTS = [
     description:
       "A full-stack college discovery platform with server-side search, filtering and comparison, plus a deterministic predictor that scores SAFE, MODERATE and REACH picks from exam rank and cutoff data.",
     tech: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Zustand"],
-    link: "https://github.com/Omraje101",
+    link: "https://github.com/Omraje101/campus-compass",
     featured: true,
   },
   {
