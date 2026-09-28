@@ -2,7 +2,7 @@
  * All site content lives here. Edit this file to update the portfolio.
  *
  * Screenshots: drop images into /public/screenshots and set `src` on the
- * matching entry (e.g. "/screenshots/campus-compass-home.png"). While `src`
+ * matching entry (e.g. "/screenshots/campus-compass-search.webp"). While `src`
  * is null, a clearly marked placeholder slot is rendered instead.
  */
 
@@ -146,25 +146,25 @@ export const featuredProjects: FeaturedProject[] = [
     code: "https://github.com/Omraje101/campus-compass",
     screenshots: [
       {
-        src: null,
-        alt: "CampusCompass college search with filters applied",
+        src: "/screenshots/campus-compass-search.webp",
+        alt: "CampusCompass college search filtered to Maharashtra, with state, type and rating filters beside college cards",
         hint: "College search page with a few filters applied and results visible",
         width: 1600,
-        height: 1000,
+        height: 876,
       },
       {
-        src: null,
-        alt: "CampusCompass side-by-side college comparison",
+        src: "/screenshots/campus-compass-compare.webp",
+        alt: "CampusCompass comparing IIT Bombay, VJTI Mumbai and a third college side by side",
         hint: "Comparison view with two or three colleges side by side",
         width: 1600,
-        height: 1000,
+        height: 875,
       },
       {
-        src: null,
-        alt: "CampusCompass admission predictor results",
+        src: "/screenshots/campus-compass-predictor.webp",
+        alt: "CampusCompass admission predictor listing SAFE matches for a JEE Main rank",
         hint: "Predictor results showing SAFE / MODERATE / REACH labels",
         width: 1600,
-        height: 1000,
+        height: 874,
       },
     ],
   },
@@ -207,18 +207,18 @@ export const featuredProjects: FeaturedProject[] = [
     code: "https://github.com/Omraje101/readme_ai",
     screenshots: [
       {
-        src: null,
-        alt: "README AI home screen with a repository URL entered",
+        src: "/screenshots/readme-ai-home.webp",
+        alt: "README AI home page with a GitHub repository URL entered",
         hint: "Home screen with a GitHub repo URL pasted in",
         width: 1600,
-        height: 1000,
+        height: 873,
       },
       {
-        src: null,
-        alt: "README AI live Markdown editor with a generated README",
+        src: "/screenshots/readme-ai-editor.webp",
+        alt: "README AI Markdown editor beside a live preview of a generated README",
         hint: "Editor with a generated README, preview visible",
         width: 1600,
-        height: 1000,
+        height: 871,
       },
     ],
   },
@@ -258,18 +258,18 @@ export const featuredProjects: FeaturedProject[] = [
     code: "https://github.com/Omraje101/ai-orbit-tools",
     screenshots: [
       {
-        src: null,
-        alt: "AI Orbit Tools directory with filters open",
+        src: "/screenshots/ai-orbit-tools-directory.webp",
+        alt: "AI Orbit Tools directory with pricing and rating filters and a grid of tools",
         hint: "Tools grid with the filter panel open",
         width: 1600,
-        height: 1000,
+        height: 877,
       },
       {
-        src: null,
-        alt: "AI Orbit Tools detail page with reviews and related tools",
+        src: "/screenshots/ai-orbit-tools-detail.webp",
+        alt: "AI Orbit Tools detail page for one tool, with features, tool information and pricing",
         hint: "A tool detail page showing reviews and related tools",
         width: 1600,
-        height: 1000,
+        height: 877,
       },
     ],
   },
@@ -285,11 +285,11 @@ export const moreProjects: SmallProject[] = [
     tags: ["AI-assisted build", "Booking flow"],
     code: "https://github.com/Omraje101/5x-Battle-DineSync-ELite",
     screenshot: {
-      src: null,
-      alt: "DineSync Elite restaurant listing page",
+      src: "/screenshots/dinesync-elite.webp",
+      alt: "DineSync Elite trending restaurants, each with rating, wait time and free seats",
       hint: "Restaurant listing or booking page",
       width: 1600,
-      height: 1000,
+      height: 868,
     },
   },
   {
@@ -301,11 +301,11 @@ export const moreProjects: SmallProject[] = [
     live: "https://momentum-webapp-101.netlify.app",
     code: "https://github.com/Omraje101/Momentum-TodoList-webApp",
     screenshot: {
-      src: null,
-      alt: "Momentum task list with priorities",
+      src: "/screenshots/momentum.webp",
+      alt: "Momentum task list with priority and category tags",
       hint: "Task list with a few prioritised, categorised tasks",
-      width: 1200,
-      height: 900,
+      width: 1600,
+      height: 877,
     },
   },
   {
@@ -316,11 +316,11 @@ export const moreProjects: SmallProject[] = [
     tags: ["Async JS", "AbortController"],
     code: "https://github.com/Omraje101/Async-Search-Control-Center",
     screenshot: {
-      src: null,
-      alt: "Async Search Control Center with results from several sources",
+      src: "/screenshots/async-search.webp",
+      alt: "Async Search Control Center with Parallel, Sequential and Fastest search modes",
       hint: "Search results with the mode switcher visible",
-      width: 1200,
-      height: 900,
+      width: 1600,
+      height: 874,
     },
   },
   {
@@ -330,11 +330,11 @@ export const moreProjects: SmallProject[] = [
     tags: ["Itineraries", "Packages"],
     code: "https://github.com/Omraje101/PlanNGo-Travel-Planner",
     screenshot: {
-      src: null,
-      alt: "PlanNGo generated itinerary",
+      src: "/screenshots/planngo.webp",
+      alt: "PlanNGo home page with destination search and featured travel packages",
       hint: "A generated itinerary or the packages page",
-      width: 1200,
-      height: 900,
+      width: 1600,
+      height: 781,
     },
   },
 ];
