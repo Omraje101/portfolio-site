@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+/* Theme is class-based (next-themes sets .dark on <html>). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Cross-Section tokens.
+ * All text pairs are WCAG AA or better in both themes:
+ * ink/bg 15.6, muted/bg 7.0 (light) / 7.5 (dark), accent/bg 6.0 / 5.9.
+ * --line is a decorative hairline; --line-strong meets 3:1 for control borders.
+ */
+:root {
+  --bg: #eef0f3;
+  --surface: #f7f8fa;
+  --ink: #15181e;
+  --muted: #4a5160;
+  --line: #c9ced6;
+  --line-strong: #7f8694;
+  --accent: #2743e8;
+  --accent-ink: #ffffff;
+  --accent-tint: #e3e8fd;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0d1016;
+  --surface: #141821;
+  --ink: #e6e9ee;
+  --muted: #9aa3b2;
+  --line: #262c38;
+  --line-strong: #626b7d;
+  --accent: #6f86ff;
+  --accent-ink: #0d1016;
+  --accent-tint: #18203a;
+
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-tint: var(--accent-tint);
+
+  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  --radius-sm: 2px;
+  --radius: 4px;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* Type scale, ~1.25 ratio; display sizes clamp between phone and desktop. */
+  --text-display: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.035em;
+  --text-h2: clamp(2rem, 1.5rem + 2vw, 3.25rem);
+  --text-h2--line-height: 1.05;
+  --text-h2--letter-spacing: -0.03em;
+  --text-h3: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  --text-h3--line-height: 1.15;
+  --text-h3--letter-spacing: -0.02em;
+  --text-lede: 1.1875rem;
+  --text-lede--line-height: 1.55;
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Sections clear the sticky nav when jumped to. */
+  [id] {
+    scroll-margin-top: 5rem;
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Pressable feedback: fast, subtle, transform only. */
+  .pressable {
+    transition:
+      transform 160ms var(--ease-out),
+      background-color 160ms ease,
+      color 160ms ease,
+      border-color 160ms ease;
+  }
+
+  .pressable:active {
+    transform: scale(0.97);
+  }
+
+  /* Underline links that draw in from the left on hover (pointer devices only). */
+  .link-draw {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 220ms var(--ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .link-draw:hover {
+      background-size: 100% 1px;
+    }
+  }
+
+  .link-draw:focus-visible {
+    background-size: 100% 1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
