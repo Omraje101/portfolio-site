@@ -54,8 +54,12 @@ export function MobileMenu({ items, resume }: { items: Item[]; resume: string })
         className="absolute inset-x-0 top-16 border-b border-line bg-bg px-4 pb-6 pt-2 motion-safe:animate-[menu-in_200ms_var(--ease-out)]"
       >
         <ul className="flex flex-col">
-          {items.map((item) => (
-            <li key={item.href} className="border-b border-line last:border-b-0">
+          {items.map((item, i) => (
+            <li
+              key={item.href}
+              className="enter enter-fast border-b border-line last:border-b-0"
+              style={{ "--d": `${i * 45 + 40}ms` } as React.CSSProperties}
+            >
               <a
                 href={item.href}
                 onClick={() => setOpen(false)}
@@ -69,7 +73,8 @@ export function MobileMenu({ items, resume }: { items: Item[]; resume: string })
         <a
           href={resume}
           download
-          className="pressable mt-4 inline-flex h-12 w-full items-center justify-center rounded bg-accent font-medium text-accent-ink"
+          className="enter enter-fast pressable mt-4 inline-flex h-12 w-full items-center justify-center rounded bg-accent font-medium text-accent-ink"
+          style={{ "--d": `${items.length * 45 + 40}ms` } as React.CSSProperties}
         >
           Download résumé
         </a>

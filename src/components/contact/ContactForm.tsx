@@ -2,6 +2,7 @@
 
 import { PaperPlaneTilt } from "@phosphor-icons/react";
 import { useRef, useState } from "react";
+import { Magnetic } from "@/components/motion/Magnetic";
 
 type Errors = { name?: string; message?: string };
 
@@ -97,13 +98,22 @@ export function ContactForm({ email }: { email: string }) {
         )}
       </div>
 
-      <button
-        type="submit"
-        className="pressable mt-8 inline-flex h-12 items-center gap-2 rounded bg-accent px-5 font-medium text-accent-ink hover:bg-ink hover:text-bg"
-      >
-        <PaperPlaneTilt size={18} weight="bold" aria-hidden />
-        Email me
-      </button>
+      <div className="mt-8">
+        <Magnetic>
+          <button
+            type="submit"
+            className="pressable sweep group inline-flex h-12 items-center gap-2 rounded bg-accent px-5 font-medium text-accent-ink [--sweep:var(--ink)] hover:text-bg"
+          >
+            <PaperPlaneTilt
+              size={18}
+              weight="bold"
+              aria-hidden
+              className="motion-nudge transition-[translate,rotate] duration-300 ease-(--ease-out) group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:rotate-12"
+            />
+            Email me
+          </button>
+        </Magnetic>
+      </div>
       <p aria-live="polite" className="mt-4 min-h-6 text-sm text-muted">
         {opened ? "Your email app should now be open with the message ready to send." : ""}
       </p>

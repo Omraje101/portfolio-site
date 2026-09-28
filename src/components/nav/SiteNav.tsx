@@ -2,6 +2,7 @@ import { nav, site } from "@/data/content";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { NavLinks } from "./NavLinks";
 import { MobileMenu } from "./MobileMenu";
+import { ScrollProgress } from "@/components/motion/ScrollProgress";
 
 export function SiteNav() {
   return (
@@ -18,7 +19,7 @@ export function SiteNav() {
           <a
             href={site.resume}
             download
-            className="pressable ml-1 inline-flex h-10 items-center rounded border border-line-strong px-4 text-sm font-medium hover:border-ink hover:bg-surface"
+            className="pressable sweep ml-1 inline-flex h-10 items-center rounded border border-line-strong px-4 text-sm font-medium [--sweep:var(--accent)] hover:border-accent hover:text-accent-ink"
           >
             Download résumé
           </a>
@@ -29,6 +30,7 @@ export function SiteNav() {
           <MobileMenu items={nav} resume={site.resume} />
         </div>
       </nav>
+      <ScrollProgress />
     </header>
   );
 }

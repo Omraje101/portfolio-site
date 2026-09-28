@@ -2,8 +2,6 @@
 
 import {
   animate,
-  domAnimation,
-  LazyMotion,
   m,
   useMotionValue,
   useReducedMotion,
@@ -55,7 +53,7 @@ export function StackDiagram({
       type: "spring",
       duration: 1.1,
       bounce: 0.12,
-      delay: 0.35,
+      delay: 0.75,
     });
     return () => controls.stop();
   }, [trigger, reduce, loadProgress]);
@@ -67,23 +65,21 @@ export function StackDiagram({
   const height = n * SLAB + (n - 1) * GAP;
 
   return (
-    <LazyMotion features={domAnimation} strict>
-      <figure ref={ref} className="w-full">
-        <figcaption className="sr-only">{label}</figcaption>
-        <div className="relative" style={{ height }}>
-          {/* Alignment lines between slabs, the dashed "bolts" of an exploded view. */}
-          {layers.slice(0, -1).map((_, i) => (
-            <Connector key={`c-${i}`} index={i} progress={progress} />
-          ))}
+    <figure ref={ref} className="w-full">
+      <figcaption className="sr-only">{label}</figcaption>
+      <div className="relative" style={{ height }}>
+        {/* Alignment lines between slabs, the dashed "bolts" of an exploded view. */}
+        {layers.slice(0, -1).map((_, i) => (
+          <Connector key={`c-${i}`} index={i} progress={progress} />
+        ))}
 
-          <ol className="relative h-full">
-            {layers.map((layer, i) => (
-              <Slab key={layer.layer} layer={layer} index={i} count={n} progress={progress} />
-            ))}
-          </ol>
-        </div>
-      </figure>
-    </LazyMotion>
+        <ol className="relative h-full">
+          {layers.map((layer, i) => (
+            <Slab key={layer.layer} layer={layer} index={i} count={n} progress={progress} />
+          ))}
+        </ol>
+      </div>
+    </figure>
   );
 }
 
@@ -108,7 +104,7 @@ function Slab({
   return (
     <m.li
       style={{ transform, zIndex: count - index, height: SLAB }}
-      className={`absolute inset-x-0 top-0 flex flex-col justify-center gap-1 rounded border bg-surface px-4 ${
+      className={`absolute inset-x-0 top-0 flex flex-col justify-center gap-1 rounded border bg-surface px-4 transition-colors duration-200 hover:border-accent ${
         isTop ? "border-accent" : "border-line-strong/60"
       }`}
     >

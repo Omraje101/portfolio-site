@@ -161,7 +161,7 @@
     transition:
       transform 160ms var(--ease-out),
       background-color 160ms ease,
-      color 160ms ease,
+      color 300ms var(--ease-out),
       border-color 160ms ease;
   }
 
@@ -201,6 +201,7 @@
 
   .motion-nudge {
     translate: none !important;
+    rotate: none !important;
   }
 }
 
@@ -208,5 +209,124 @@
   from {
     opacity: 0;
     transform: translateY(-6px);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Motion layer (CSS side). Movement is gated behind no-preference; under
+ * reduced motion everything renders in its final state.
+ * ------------------------------------------------------------------------- */
+
+/*
+ * Hero words rise a short way and come into focus. They start at 1% opacity
+ * (not 0) and unclipped, so the browser paints the headline at full size on the
+ * first frame and Largest Contentful Paint is not held back by the animation.
+ */
+@keyframes rise-in {
+  from {
+    opacity: 0.01;
+    transform: translateY(0.35em);
+    filter: blur(8px);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@layer components {
+  /* Hero headline: each word rises into focus, one after another. */
+  .word {
+    display: inline-block;
+  }
+
+  /* Staggered fade-up used by the hero lede, buttons and mobile menu. */
+  .enter {
+    --d: 0ms;
+  }
+
+  /* Button colour sweep: a fill slides in from the left on hover, back out to the right. */
+  .sweep {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .sweep::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--sweep, var(--ink));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 380ms var(--ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .sweep:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+
+  /* Case study detail: groups step in once the panel opens. */
+  .cs-item {
+    opacity: 0;
+    transition:
+      opacity 400ms var(--ease-out),
+      translate 500ms var(--ease-out);
+    transition-delay: calc(var(--i, 0) * 70ms + 80ms);
+  }
+
+  [data-open="true"] .cs-item {
+    opacity: 1;
+  }
+
+  /* Screenshot links: lift toward the pointer, with a slate-tinted shadow. */
+  .shot-link {
+    transition:
+      translate 320ms var(--ease-out),
+      box-shadow 320ms var(--ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .shot-link:hover {
+      box-shadow: 0 24px 48px -28px rgb(var(--shadow-tint) / 0.45);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .word {
+    animation: rise-in 900ms var(--ease-out) both;
+    animation-delay: calc(var(--i) * 70ms + 80ms);
+  }
+
+  .enter {
+    animation: fade-up 800ms var(--ease-out) both;
+    animation-delay: var(--d);
+  }
+
+  /* Menus open often: keep their entrances short. */
+  .enter.enter-fast {
+    animation-duration: 360ms;
+  }
+
+  .cs-item {
+    translate: 0 14px;
+  }
+
+  [data-open="true"] .cs-item {
+    translate: 0 0;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .shot-link:hover {
+      translate: 0 -6px;
+    }
   }
 }

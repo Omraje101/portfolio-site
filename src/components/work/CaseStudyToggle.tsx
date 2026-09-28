@@ -41,7 +41,8 @@ export function CaseStudyToggle({
         role="region"
         aria-label={`${title} case study`}
         inert={!open}
-        className={`grid transition-[grid-template-rows,opacity] duration-300 ease-(--ease-out) ${
+        data-open={open}
+        className={`grid transition-[grid-template-rows,opacity] duration-500 ease-(--ease-out) ${
           open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
         }`}
       >
