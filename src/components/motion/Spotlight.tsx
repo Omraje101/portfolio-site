@@ -1,42 +1,48 @@
 "use client";
 
 import { m, useMotionTemplate, useMotionValue, useReducedMotion, useSpring } from "motion/react";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 /**
- * A soft matcha glow that trails the pointer across its parent section.
- * Mouse/pen only; touch and reduced motion get no glow. Motion values only,
- * so pointer movement never re-renders React.
+ * A soft matcha glow that trails the pointer across the whole page. Fixed to
+ * the viewport and layered behind the content, so it shows through the glass
+ * panels. Mouse/pen only; touch and reduced motion get no glow. Motion values
+ * only, so pointer movement never re-renders React.
  */
 export function Spotlight() {
-  const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const x = useMotionValue(-1000);
   const y = useMotionValue(-1000);
   const sx = useSpring(x, { stiffness: 120, damping: 24, mass: 0.6 });
   const sy = useSpring(y, { stiffness: 120, damping: 24, mass: 0.6 });
-  const background = useMotionTemplate`radial-gradient(520px circle at ${sx}px ${sy}px, color-mix(in oklab, var(--accent) 22%, transparent), transparent 70%)`;
+  const opacity = useSpring(0, { stiffness: 120, damping: 24 });
+  const background = useMotionTemplate`radial-gradient(560px circle at ${sx}px ${sy}px, color-mix(in oklab, var(--accent) 20%, transparent), transparent 70%)`;
 
   useEffect(() => {
-    const host = ref.current?.parentElement;
-    if (!host || reduce || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    if (reduce || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
     const onMove = (e: PointerEvent) => {
-      const r = host.getBoundingClientRect();
-      x.set(e.clientX - r.left);
-      y.set(e.clientY - r.top);
+      if (e.pointerType === "touch") return;
+      x.set(e.clientX);
+      y.set(e.clientY);
+      opacity.set(1);
     };
-    const onLeave = () => {
-      x.set(-1000);
-      y.set(-1000);
-    };
-    host.addEventListener("pointermove", onMove);
-    host.addEventListener("pointerleave", onLeave);
-    return () => {
-      host.removeEventListener("pointermove", onMove);
-      host.removeEventListener("pointerleave", onLeave);
-    };
-  }, [reduce, x, y]);
+    // Fade out when the pointer leaves the window.
+    const onLeave = () => opacity.set(0);
 
-  return <m.div ref={ref} aria-hidden style={{ background }} className="pointer-events-none absolute inset-0" />;
+    window.addEventListener("pointermove", onMove, { passive: true });
+    document.documentElement.addEventListener("pointerleave", onLeave);
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      document.documentElement.removeEventListener("pointerleave", onLeave);
+    };
+  }, [reduce, x, y, opacity]);
+
+  return (
+    <m.div
+      aria-hidden
+      style={{ background, opacity }}
+      className="pointer-events-none fixed inset-0 -z-10"
+    />
+  );
 }

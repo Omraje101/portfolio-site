@@ -1,3 +1,4 @@
+import { Spotlight } from "@/components/motion/Spotlight";
 import { SiteNav } from "@/components/nav/SiteNav";
 import { About } from "@/components/sections/About";
 import { Achievements } from "@/components/sections/Achievements";
@@ -17,6 +18,7 @@ export default function Home() {
       <SiteNav />
       <main id="main" className="relative isolate">
         <AmbientGlows />
+        <Spotlight />
         <Hero />
         <Marquee />
         <About />

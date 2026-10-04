@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRef } from "react";
 
 /**
- * About portrait: the cutout sits on a matcha-to-blush glow. As the frame scrolls
+ * About portrait: the cutout sits on a matcha-to-lavender glow. As the frame scrolls
  * through the viewport the photo rises into its seat while the glow drifts and
  * turns the other way, for depth. The photo only moves between "slightly low"
  * and "seated", so the cutout never lifts off the frame's bottom edge.

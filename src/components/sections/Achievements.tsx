@@ -18,7 +18,7 @@ export function Achievements() {
               key={win.event}
               className="glass group/win relative overflow-hidden rounded-[var(--radius-panel)] p-7 lg:col-span-4"
             >
-              {/* Winner gets the matcha glow, runner-up the blush one. */}
+              {/* Winner gets the matcha glow, runner-up the lavender one. */}
               <span
                 aria-hidden
                 className={`absolute -right-10 -top-10 size-40 rounded-full blur-3xl ${i === 0 ? "bg-accent/30" : "bg-secondary/25"}`}

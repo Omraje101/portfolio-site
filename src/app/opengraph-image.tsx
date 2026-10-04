@@ -21,9 +21,9 @@ export default function OpengraphImage() {
           height: "100%",
           display: "flex",
           backgroundColor: BG,
-          // Static stand-in for the site's aurora: matcha top-left, blush right.
+          // Static stand-in for the site's aurora: matcha top-left, lavender right.
           backgroundImage:
-            "radial-gradient(circle at 8% 0%, rgba(111,143,94,0.5), transparent 55%), radial-gradient(circle at 100% 30%, rgba(232,180,166,0.32), transparent 50%)",
+            "radial-gradient(circle at 8% 0%, rgba(111,143,94,0.5), transparent 55%), radial-gradient(circle at 100% 30%, rgba(142,127,192,0.4), transparent 50%)",
           color: INK,
           padding: 72,
           justifyContent: "space-between",

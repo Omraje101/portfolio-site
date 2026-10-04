@@ -1,7 +1,6 @@
 import { ArrowDownRight, DownloadSimple } from "@phosphor-icons/react/dist/ssr";
 import { hero, site } from "@/data/content";
 import { Magnetic } from "@/components/motion/Magnetic";
-import { Spotlight } from "@/components/motion/Spotlight";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { StackDiagram } from "@/components/work/StackDiagram";
 
@@ -27,7 +26,6 @@ export function Hero() {
         <span />
       </div>
       <div aria-hidden className="blueprint -z-10" />
-      <Spotlight />
       {/* Fade the hero into the page background so the aurora has no hard edge. */}
       <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent to-bg" />
 
