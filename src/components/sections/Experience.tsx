@@ -15,7 +15,7 @@ export function Experience() {
         Experience
       </RevealHeading>
 
-      {/* Timeline: a glowing lavender-to-matcha rail with a node per role. */}
+      {/* Timeline: a glowing butter-to-matcha rail with a node per role. */}
       <div className="relative mt-12 md:mt-16 md:pl-16">
         <span
           aria-hidden

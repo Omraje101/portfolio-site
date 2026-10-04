@@ -2,7 +2,7 @@
 
 import { m, useScroll, useSpring } from "motion/react";
 
-/** Matcha-to-lavender line along the nav's bottom edge showing how far down the page you are. */
+/** Matcha-to-butter line along the nav's bottom edge showing how far down the page you are. */
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30, restDelta: 0.001 });
