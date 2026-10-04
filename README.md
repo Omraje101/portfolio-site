@@ -9,7 +9,7 @@ Personal portfolio of Om Waghmare, a full stack developer (MERN and Next.js) in 
 - **Next.js 16** (App Router, React 19) with TypeScript. Every route is statically prerendered.
 - **Tailwind CSS v4**, with design tokens as CSS variables in `src/app/globals.css`.
 - **Motion** for animation, loaded through `LazyMotion`.
-- **next-themes** for dark (default) and light mode.
+- **next-themes** for light (default) and dark mode.
 - **Phosphor Icons**, and the **Bricolage Grotesque**, **Schibsted Grotesk** and **IBM Plex Mono** fonts via `next/font`.
 - Deployed on **Vercel**.
 
@@ -25,7 +25,7 @@ Personal portfolio of Om Waghmare, a full stack developer (MERN and Next.js) in 
 8. **Achievements:** competition wins, practice milestones and certifications.
 9. **Contact:** email with a copy button, plus a form that opens your mail app (no backend).
 
-Dark theme by default, with a light theme toggle. The site also includes a sitemap, `robots.txt`, a generated Open Graph image and favicon, and JSON-LD for search engines. Animations respect `prefers-reduced-motion`.
+Light theme by default, with a dark theme toggle. The site also includes a sitemap, `robots.txt`, a generated Open Graph image and favicon, and JSON-LD for search engines. Animations respect `prefers-reduced-motion`.
 
 ## Run locally
 

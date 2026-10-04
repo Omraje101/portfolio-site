@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Theme is class-based (next-themes sets .dark on <html>). Dark is the default. */
+/* Theme is class-based (next-themes sets .dark on <html>). Light is the default. */
 @custom-variant dark (&:where(.dark, .dark *));
 
 /*
