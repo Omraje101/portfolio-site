@@ -8,7 +8,7 @@ const base =
 // Hover fills sweep in from the left (see .sweep in globals.css).
 const variants: Record<Variant, string> = {
   primary: "sweep bg-accent text-accent-ink [--sweep:var(--ink)] hover:text-bg",
-  secondary: "glass sweep text-ink [--sweep:var(--teal)] hover:text-accent-ink",
+  secondary: "glass sweep text-ink [--sweep:var(--secondary)] hover:text-accent-ink",
 };
 
 export function ButtonLink({

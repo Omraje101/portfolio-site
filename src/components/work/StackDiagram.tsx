@@ -104,7 +104,7 @@ function Slab({
   return (
     <m.li
       style={{ transform, zIndex: count - index, height: SLAB }}
-      className={`absolute inset-x-0 top-0 flex flex-col justify-center gap-1 rounded-xl border bg-surface/90 px-4 transition-colors duration-200 hover:border-teal ${
+      className={`absolute inset-x-0 top-0 flex flex-col justify-center gap-1 rounded-xl border bg-surface/90 px-4 transition-colors duration-200 hover:border-secondary ${
         isTop ? "border-accent shadow-[0_0_24px_-8px_var(--accent)]" : "border-line-strong/50"
       }`}
     >

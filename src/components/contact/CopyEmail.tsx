@@ -29,7 +29,7 @@ export function CopyEmail({ email }: { email: string }) {
       <button
         type="button"
         onClick={copy}
-        className="pressable sweep glass inline-flex h-11 items-center gap-2 rounded-full px-4 text-sm font-semibold [--sweep:var(--teal)] hover:text-accent-ink"
+        className="pressable sweep glass inline-flex h-11 items-center gap-2 rounded-full px-4 text-sm font-semibold [--sweep:var(--secondary)] hover:text-accent-ink"
       >
         {status === "copied" ? (
           <Check size={16} weight="bold" aria-hidden className="text-accent" />

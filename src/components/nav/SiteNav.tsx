@@ -13,7 +13,7 @@ export function SiteNav() {
         className="glass relative mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 rounded-full pl-5 pr-2"
       >
         <a href="#top" className="pressable flex items-center gap-2 font-display text-[1.0625rem] font-semibold tracking-tight">
-          <span aria-hidden className="size-2.5 rounded-full bg-gradient-to-br from-teal to-accent" />
+          <span aria-hidden className="size-2.5 rounded-full bg-gradient-to-br from-secondary to-accent" />
           {site.name}
         </a>
 

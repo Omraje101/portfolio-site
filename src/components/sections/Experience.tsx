@@ -15,25 +15,25 @@ export function Experience() {
         Experience
       </RevealHeading>
 
-      {/* Timeline: a glowing teal-to-coral rail with a node per role. */}
+      {/* Timeline: a glowing blush-to-matcha rail with a node per role. */}
       <div className="relative mt-12 md:mt-16 md:pl-16">
         <span
           aria-hidden
-          className="absolute bottom-0 left-[1.375rem] top-0 hidden w-px bg-gradient-to-b from-teal via-accent to-transparent shadow-[0_0_16px_var(--teal)] md:block"
+          className="absolute bottom-0 left-[1.375rem] top-0 hidden w-px bg-gradient-to-b from-secondary via-accent to-transparent shadow-[0_0_16px_var(--secondary)] md:block"
         />
         <ol>
         {experience.map((job) => (
           <li key={`${job.company}-${job.period}`} className="relative">
             <span
               aria-hidden
-              className="absolute -left-16 top-7 hidden size-11 items-center justify-center rounded-full border border-line-strong bg-bg text-teal md:inline-flex"
+              className="absolute -left-16 top-7 hidden size-11 items-center justify-center rounded-full border border-line-strong bg-bg text-secondary md:inline-flex"
             >
               <Briefcase size={20} weight="duotone" />
             </span>
             <Reveal>
               <div className="glass grid gap-6 rounded-[var(--radius-panel)] p-6 sm:p-8 md:grid-cols-12 md:gap-10">
                 <div className="md:col-span-4">
-                  <p className="inline-flex rounded-full bg-teal/15 px-3 py-1 text-sm font-semibold tabular-nums text-teal">
+                  <p className="inline-flex rounded-full bg-secondary/15 px-3 py-1 text-sm font-semibold tabular-nums text-secondary">
                     {job.period}
                   </p>
                   <p className="mt-3 text-sm text-muted">{job.mode}</p>

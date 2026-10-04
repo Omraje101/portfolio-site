@@ -34,7 +34,7 @@ export function Hero() {
       <div className="container-page grid w-full items-center gap-14 pb-16 pt-32 lg:grid-cols-12 lg:gap-10 lg:pt-28">
         <div className="lg:col-span-7">
           <p className="enter glass inline-flex items-center gap-2.5 rounded-full py-1.5 pl-3 pr-4 text-sm font-medium" style={{ "--d": "0ms" } as React.CSSProperties}>
-            <span aria-hidden className="live-dot relative size-2 rounded-full bg-teal after:absolute after:inset-0 after:rounded-full after:bg-teal" />
+            <span aria-hidden className="live-dot relative size-2 rounded-full bg-secondary after:absolute after:inset-0 after:rounded-full after:bg-secondary" />
             {hero.status}
           </p>
 

@@ -5,12 +5,12 @@ export const alt = `${site.name}, ${site.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const INK = "#e8f1f2";
-const MUTED = "#93a9ad";
-const BG = "#070f12";
-const SURFACE = "#0e1a1e";
-const LINE = "#56707a";
-const ACCENT = "#ff7a59";
+const INK = "#eef1ea";
+const MUTED = "#a3b0a5";
+const BG = "#0f1411";
+const SURFACE = "#18201b";
+const LINE = "#5f6f63";
+const ACCENT = "#a9c493";
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -21,9 +21,9 @@ export default function OpengraphImage() {
           height: "100%",
           display: "flex",
           backgroundColor: BG,
-          // Static stand-in for the site's aurora: teal top-left, coral right.
+          // Static stand-in for the site's aurora: matcha top-left, blush right.
           backgroundImage:
-            "radial-gradient(circle at 8% 0%, rgba(20,184,166,0.45), transparent 55%), radial-gradient(circle at 100% 30%, rgba(255,122,89,0.38), transparent 50%)",
+            "radial-gradient(circle at 8% 0%, rgba(111,143,94,0.5), transparent 55%), radial-gradient(circle at 100% 30%, rgba(232,180,166,0.32), transparent 50%)",
           color: INK,
           padding: 72,
           justifyContent: "space-between",

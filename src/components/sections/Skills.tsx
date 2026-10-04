@@ -21,7 +21,7 @@ export function Skills() {
               className={`glass group/skill rounded-[var(--radius-panel)] p-6 ${i < 2 ? "lg:col-span-3" : "lg:col-span-2"}`}
             >
               <h3 className="flex items-center gap-3 font-display text-xl font-bold">
-                <span className="inline-flex size-10 items-center justify-center rounded-full bg-gradient-to-br from-teal/25 to-accent/25 text-ink transition-transform duration-500 ease-(--ease-out) group-hover/skill:rotate-12 motion-reduce:transition-none">
+                <span className="inline-flex size-10 items-center justify-center rounded-full bg-gradient-to-br from-secondary/25 to-accent/25 text-ink transition-transform duration-500 ease-(--ease-out) group-hover/skill:rotate-12 motion-reduce:transition-none">
                   <Icon size={20} weight="duotone" aria-hidden />
                 </span>
                 {group.group}
@@ -30,7 +30,7 @@ export function Skills() {
                 {group.items.map((item) => (
                   <li
                     key={item}
-                    className="rounded-full border border-line-strong/50 bg-surface/50 px-3 py-1 font-mono text-[0.8125rem] transition-colors duration-200 hover:border-teal hover:text-teal"
+                    className="rounded-full border border-line-strong/50 bg-surface/50 px-3 py-1 font-mono text-[0.8125rem] transition-colors duration-200 hover:border-secondary hover:text-secondary"
                   >
                     {item}
                   </li>

@@ -4,7 +4,7 @@ import { m, useMotionTemplate, useMotionValue, useReducedMotion, useSpring } fro
 import { useEffect, useRef } from "react";
 
 /**
- * A soft coral glow that trails the pointer across its parent section.
+ * A soft matcha glow that trails the pointer across its parent section.
  * Mouse/pen only; touch and reduced motion get no glow. Motion values only,
  * so pointer movement never re-renders React.
  */

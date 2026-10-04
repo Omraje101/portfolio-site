@@ -4,34 +4,34 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /*
- * Teal & Coral tokens.
+ * Matcha & Blush tokens. Accent = matcha (buttons, focus), secondary = blush.
  * Text pairs, WCAG AA or better in both themes:
- *   dark:  ink/bg 16.9, muted/bg 7.8, coral/bg 7.5, bg on coral 7.5, teal/bg 10.4
- *   light: ink/bg 16.4, muted/bg 6.4, coral/bg 5.0, white on coral 5.4, teal/bg 5.0
+ *   dark:  ink/bg 16.3, muted/bg 8.3, matcha/bg 9.8, bg on matcha 9.8, blush/bg 10.2
+ *   light: ink/bg 13.1, muted/bg 6.0, matcha/bg 5.3, white on matcha 6.0, blush/bg 5.0
  * --line is a decorative hairline; --line-strong meets 3:1 for control borders.
  *
  * Shape rule: panels 20px, screenshots inside panels 12px, controls are pills.
  */
 :root {
-  --bg: #f2f6f6;
-  --surface: #ffffff;
-  --surface-2: #e7eeef;
-  --ink: #0b1a1d;
-  --muted: #4a5d61;
-  --line: #d3dee0;
-  --line-strong: #7f9195;
-  --accent: #b8432a;
+  --bg: #eef1ea;
+  --surface: #fbfcf9;
+  --surface-2: #e3e9df;
+  --ink: #1e2a22;
+  --muted: #4f5e53;
+  --line: #d3dccf;
+  --line-strong: #7b8a7f;
+  --accent: #4d6b3e;
   --accent-ink: #ffffff;
-  --teal: #0f766e;
-  --glass: rgb(255 255 255 / 0.62);
-  --glass-border: rgb(11 26 29 / 0.09);
+  --secondary: #a0503f;
+  --glass: rgb(251 252 249 / 0.62);
+  --glass-border: rgb(30 42 34 / 0.09);
   --glass-highlight: rgb(255 255 255 / 0.9);
-  --aurora-a: #5eead4;
-  --aurora-b: #ff9f85;
-  --aurora-c: #99f6e4;
-  --aurora-opacity: 0.85;
+  --aurora-a: #b9d2a6;
+  --aurora-b: #f2c9be;
+  --aurora-c: #d6e5cc;
+  --aurora-opacity: 0.9;
   --danger: #b42424;
-  --shadow-tint: 11 26 29;
+  --shadow-tint: 30 42 34;
 
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -40,24 +40,24 @@
 }
 
 .dark {
-  --bg: #070f12;
-  --surface: #0e1a1e;
-  --surface-2: #13242a;
-  --ink: #e8f1f2;
-  --muted: #93a9ad;
-  --line: #1b2c31;
-  --line-strong: #56707a;
-  --accent: #ff7a59;
-  --accent-ink: #070f12;
-  --teal: #2dd4bf;
-  --glass: rgb(255 255 255 / 0.05);
-  --glass-border: rgb(232 241 242 / 0.1);
-  --glass-highlight: rgb(255 255 255 / 0.08);
-  --aurora-a: #14b8a6;
-  --aurora-b: #ff7a59;
-  --aurora-c: #0e7490;
-  --aurora-opacity: 0.8;
-  --danger: #ff8a8a;
+  --bg: #0f1411;
+  --surface: #18201b;
+  --surface-2: #1f2922;
+  --ink: #eef1ea;
+  --muted: #a3b0a5;
+  --line: #243029;
+  --line-strong: #5f6f63;
+  --accent: #a9c493;
+  --accent-ink: #0f1411;
+  --secondary: #e8b4a6;
+  --glass: rgb(238 241 234 / 0.05);
+  --glass-border: rgb(238 241 234 / 0.1);
+  --glass-highlight: rgb(255 255 255 / 0.07);
+  --aurora-a: #6f8f5e;
+  --aurora-b: #e8b4a6;
+  --aurora-c: #3e5a44;
+  --aurora-opacity: 0.7;
+  --danger: #ff9a8a;
   --shadow-tint: 0 0 0;
 
   color-scheme: dark;
@@ -73,7 +73,7 @@
   --color-line-strong: var(--line-strong);
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
-  --color-teal: var(--teal);
+  --color-secondary: var(--secondary);
   --color-danger: var(--danger);
 
   --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;

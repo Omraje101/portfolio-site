@@ -44,7 +44,7 @@ export function About() {
                   className={`border-t border-line pt-4 ${i === 0 ? "sm:col-span-2" : ""}`}
                 >
                   <dt className="flex items-center gap-2 text-sm text-muted">
-                    <Icon size={16} weight="duotone" aria-hidden className="text-teal" />
+                    <Icon size={16} weight="duotone" aria-hidden className="text-secondary" />
                     {label}
                   </dt>
                   <dd className="mt-1.5 font-semibold">{value}</dd>

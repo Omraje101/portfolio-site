@@ -18,16 +18,16 @@ export function Achievements() {
               key={win.event}
               className="glass group/win relative overflow-hidden rounded-[var(--radius-panel)] p-7 lg:col-span-4"
             >
-              {/* Winner gets the coral glow, runner-up the teal one. */}
+              {/* Winner gets the matcha glow, runner-up the blush one. */}
               <span
                 aria-hidden
-                className={`absolute -right-10 -top-10 size-40 rounded-full blur-3xl ${i === 0 ? "bg-accent/30" : "bg-teal/25"}`}
+                className={`absolute -right-10 -top-10 size-40 rounded-full blur-3xl ${i === 0 ? "bg-accent/30" : "bg-secondary/25"}`}
               />
               <Icon
                 size={36}
                 weight="duotone"
                 aria-hidden
-                className={`motion-nudge relative transition-[translate,rotate] duration-500 ease-(--ease-out) group-hover/win:-translate-y-1 group-hover/win:-rotate-8 ${i === 0 ? "text-accent" : "text-teal"}`}
+                className={`motion-nudge relative transition-[translate,rotate] duration-500 ease-(--ease-out) group-hover/win:-translate-y-1 group-hover/win:-rotate-8 ${i === 0 ? "text-accent" : "text-secondary"}`}
               />
               <p className="relative mt-6 font-display text-h3 font-bold">{win.title}</p>
               <p className="relative mt-1 text-lede">{win.event}</p>
@@ -37,7 +37,7 @@ export function Achievements() {
         })}
 
         <RevealItem className="glass rounded-[var(--radius-panel)] p-7 lg:col-span-4">
-          <Code size={36} weight="duotone" aria-hidden className="text-teal" />
+          <Code size={36} weight="duotone" aria-hidden className="text-secondary" />
           <ul className="mt-6 space-y-3">
             {achievements.practice.map((item) => (
               <li key={item} className="text-lede">

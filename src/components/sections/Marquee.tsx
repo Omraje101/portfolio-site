@@ -20,7 +20,7 @@ export function Marquee() {
           <span className="px-6 font-display text-2xl font-semibold tracking-tight text-ink/80 md:text-3xl">
             {item}
           </span>
-          <span aria-hidden className="size-1.5 rounded-full bg-gradient-to-br from-teal to-accent" />
+          <span aria-hidden className="size-1.5 rounded-full bg-gradient-to-br from-secondary to-accent" />
         </li>
       ))}
     </ul>

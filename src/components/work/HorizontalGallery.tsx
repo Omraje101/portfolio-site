@@ -76,7 +76,7 @@ export function HorizontalGallery({
             <div className="h-0.5 overflow-hidden rounded-full bg-line">
               <m.div
                 style={{ scaleX: progress }}
-                className="h-full origin-left rounded-full bg-gradient-to-r from-teal to-accent"
+                className="h-full origin-left rounded-full bg-gradient-to-r from-secondary to-accent"
               />
             </div>
           </div>
