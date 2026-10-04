@@ -70,9 +70,11 @@ export const site = {
 
 export const hero = {
   // U+2011 is a non-breaking hyphen, so "full-stack" never splits across lines.
+  // Short line used by the Open Graph share image.
   headline: "I build full‑stack web apps, end to end.",
-  subtext:
-    "I’m Om Waghmare, a MERN and Next.js developer in Pune, taking apps from REST APIs and auth to responsive interfaces.",
+  // One-line positioning shown under the name in the hero.
+  tagline: "I build full‑stack web apps end to end, from REST APIs and auth to polished interfaces.",
+  status: "Open to full stack roles and freelance work",
   /** The layers drawn in the hero cross-section, top (what users see) to bottom. */
   stack: [
     { layer: "Interface", tech: ["React", "Next.js", "Tailwind CSS"] },

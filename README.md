@@ -9,22 +9,23 @@ Personal portfolio of Om Waghmare, a full stack developer (MERN and Next.js) in 
 - **Next.js 16** (App Router, React 19) with TypeScript. Every route is statically prerendered.
 - **Tailwind CSS v4**, with design tokens as CSS variables in `src/app/globals.css`.
 - **Motion** for animation, loaded through `LazyMotion`.
-- **next-themes** for light and dark mode (follows the system setting, with a toggle).
-- **Phosphor Icons**, and the **Schibsted Grotesk** and **IBM Plex Mono** fonts via `next/font`.
+- **next-themes** for dark (default) and light mode.
+- **Phosphor Icons**, and the **Bricolage Grotesque**, **Schibsted Grotesk** and **IBM Plex Mono** fonts via `next/font`.
 - Deployed on **Vercel**.
 
 ## Sections
 
-1. **Hero:** headline, résumé download, and an exploded diagram of the stack (interface, state, API, data).
-2. **About:** photo, short bio, education and availability.
-3. **Selected work:** case studies for CampusCompass, README AI and AI Orbit Tools. Each has its own stack diagram and details that expand in place.
-4. **More projects:** DineSync Elite, Momentum, Async Search Control Center and PlanNGo.
-5. **Experience:** Data Science Intern at Cognifyz Technologies.
-6. **Skills:** languages, frontend, backend and data, APIs and testing, and tools.
-7. **Achievements:** competition wins, practice milestones and certifications.
-8. **Contact:** email with a copy button, plus a form that opens your mail app (no backend).
+1. **Hero:** full-screen aurora and blueprint grid, a large name, résumé download, and an exploded diagram of the stack (interface, state, API, data).
+2. **Tech marquee:** the full stack scrolling past (pausable).
+3. **About:** photo, short bio, education and availability.
+4. **Selected work:** a pinned horizontal gallery of CampusCompass, README AI and AI Orbit Tools. Each case study opens in a dialog with features, screenshots and its stack diagram. On phones the gallery is a swipeable carousel.
+5. **More projects:** DineSync Elite, Momentum, Async Search Control Center and PlanNGo.
+6. **Experience:** Data Science Intern at Cognifyz Technologies.
+7. **Skills:** languages, frontend, backend and data, APIs and testing, and tools.
+8. **Achievements:** competition wins, practice milestones and certifications.
+9. **Contact:** email with a copy button, plus a form that opens your mail app (no backend).
 
-The site also includes a sitemap, `robots.txt`, a generated Open Graph image and favicon, and JSON-LD for search engines. Animations respect `prefers-reduced-motion`.
+Dark theme by default, with a light theme toggle. The site also includes a sitemap, `robots.txt`, a generated Open Graph image and favicon, and JSON-LD for search engines. Animations respect `prefers-reduced-motion`.
 
 ## Run locally
 

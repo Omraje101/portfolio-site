@@ -2,7 +2,7 @@
 
 import { m, useScroll, useSpring } from "motion/react";
 
-/** Saffron line along the nav's bottom edge showing how far down the page you are. */
+/** Coral line along the nav's bottom edge showing how far down the page you are. */
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30, restDelta: 0.001 });
@@ -11,7 +11,7 @@ export function ScrollProgress() {
     <m.div
       aria-hidden
       style={{ scaleX }}
-      className="absolute inset-x-0 -bottom-px h-0.5 origin-left bg-accent"
+      className="absolute inset-x-6 bottom-0 h-0.5 origin-left rounded-full bg-gradient-to-r from-teal to-accent"
     />
   );
 }

@@ -38,15 +38,15 @@ export function NavLinks({ items }: { items: Item[] }) {
             <a
               href={item.href}
               aria-current={isActive ? "location" : undefined}
-              className={`relative inline-flex h-10 items-center rounded px-3 text-sm transition-colors duration-150 hover:text-ink ${
-                isActive ? "text-ink" : "text-muted"
+              className={`relative inline-flex h-10 items-center rounded-full px-4 text-sm font-medium transition-colors duration-200 hover:text-ink ${
+                isActive ? "bg-ink/[0.07] text-ink" : "text-muted"
               }`}
             >
               {item.label}
               <span
                 aria-hidden
-                className={`absolute inset-x-3 -bottom-[13px] h-0.5 origin-left bg-accent transition-transform duration-200 ease-(--ease-out) ${
-                  isActive ? "scale-x-100" : "scale-x-0"
+                className={`absolute bottom-1 left-1/2 size-1 -translate-x-1/2 rounded-full bg-accent transition-transform duration-200 ease-(--ease-out) ${
+                  isActive ? "scale-100" : "scale-0"
                 }`}
               />
             </a>

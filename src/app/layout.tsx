@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Schibsted_Grotesk } from "next/font/google";
+import { Bricolage_Grotesque, IBM_Plex_Mono, Schibsted_Grotesk } from "next/font/google";
 import { MotionProvider } from "@/components/motion/MotionProvider";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { site } from "@/data/content";
@@ -8,6 +8,16 @@ import "./globals.css";
 const schibsted = Schibsted_Grotesk({
   variable: "--font-schibsted",
   subsets: ["latin"],
+  display: "swap",
+});
+
+// Display face: used for the name and section headings only.
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
+  subsets: ["latin"],
+  // Static weights instead of the full variable font: much smaller download,
+  // and the hero name (the LCP element) is set in this face.
+  weight: ["600", "700"],
   display: "swap",
 });
 
@@ -60,8 +70,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#eef0f2" },
-    { media: "(prefers-color-scheme: dark)", color: "#111418" },
+    { media: "(prefers-color-scheme: light)", color: "#f2f6f6" },
+    { media: "(prefers-color-scheme: dark)", color: "#070f12" },
   ],
 };
 
@@ -90,7 +100,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${schibsted.variable} ${plexMono.variable}`}
+      className={`${schibsted.variable} ${bricolage.variable} ${plexMono.variable}`}
     >
       <body>
         <a

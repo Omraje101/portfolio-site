@@ -1,27 +1,37 @@
 @import "tailwindcss";
 
-/* Theme is class-based (next-themes sets .dark on <html>). */
+/* Theme is class-based (next-themes sets .dark on <html>). Dark is the default. */
 @custom-variant dark (&:where(.dark, .dark *));
 
 /*
- * Saffron Slate tokens.
+ * Teal & Coral tokens.
  * Text pairs, WCAG AA or better in both themes:
- *   light: ink/bg 15.3, muted/bg 6.9, accent/bg 5.1, white on accent 5.8
- *   dark:  ink/bg 15.3, muted/bg 7.3, accent/bg 9.1, bg on accent 9.1
+ *   dark:  ink/bg 16.9, muted/bg 7.8, coral/bg 7.5, bg on coral 7.5, teal/bg 10.4
+ *   light: ink/bg 16.4, muted/bg 6.4, coral/bg 5.0, white on coral 5.4, teal/bg 5.0
  * --line is a decorative hairline; --line-strong meets 3:1 for control borders.
+ *
+ * Shape rule: panels 20px, screenshots inside panels 12px, controls are pills.
  */
 :root {
-  --bg: #eef0f2;
-  --surface: #f8f9fa;
-  --ink: #161a1f;
-  --muted: #4b5260;
-  --line: #cfd3d9;
-  --line-strong: #7f8694;
-  --accent: #a64b07;
+  --bg: #f2f6f6;
+  --surface: #ffffff;
+  --surface-2: #e7eeef;
+  --ink: #0b1a1d;
+  --muted: #4a5d61;
+  --line: #d3dee0;
+  --line-strong: #7f9195;
+  --accent: #b8432a;
   --accent-ink: #ffffff;
-  --accent-tint: #fbebd9;
+  --teal: #0f766e;
+  --glass: rgb(255 255 255 / 0.62);
+  --glass-border: rgb(11 26 29 / 0.09);
+  --glass-highlight: rgb(255 255 255 / 0.9);
+  --aurora-a: #5eead4;
+  --aurora-b: #ff9f85;
+  --aurora-c: #99f6e4;
+  --aurora-opacity: 0.85;
   --danger: #b42424;
-  --shadow-tint: 22 26 31;
+  --shadow-tint: 11 26 29;
 
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -30,15 +40,23 @@
 }
 
 .dark {
-  --bg: #111418;
-  --surface: #191d23;
-  --ink: #e8eaed;
-  --muted: #9ca3af;
-  --line: #2a2f37;
-  --line-strong: #636b78;
-  --accent: #f5a524;
-  --accent-ink: #111418;
-  --accent-tint: #2a2114;
+  --bg: #070f12;
+  --surface: #0e1a1e;
+  --surface-2: #13242a;
+  --ink: #e8f1f2;
+  --muted: #93a9ad;
+  --line: #1b2c31;
+  --line-strong: #56707a;
+  --accent: #ff7a59;
+  --accent-ink: #070f12;
+  --teal: #2dd4bf;
+  --glass: rgb(255 255 255 / 0.05);
+  --glass-border: rgb(232 241 242 / 0.1);
+  --glass-highlight: rgb(255 255 255 / 0.08);
+  --aurora-a: #14b8a6;
+  --aurora-b: #ff7a59;
+  --aurora-c: #0e7490;
+  --aurora-opacity: 0.8;
   --danger: #ff8a8a;
   --shadow-tint: 0 0 0;
 
@@ -48,33 +66,38 @@
 @theme inline {
   --color-bg: var(--bg);
   --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
-  --color-accent-tint: var(--accent-tint);
+  --color-teal: var(--teal);
   --color-danger: var(--danger);
 
   --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-schibsted), ui-sans-serif, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 
-  --radius-sm: 2px;
-  --radius: 4px;
+  --radius-shot: 12px;
+  --radius-panel: 20px;
 
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 
-  /* Type scale, ~1.25 ratio; display sizes clamp between phone and desktop. */
-  --text-display: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem);
+  /* Type scale. The name in the hero is the one oversized moment. */
+  --text-giant: clamp(3.5rem, 1rem + 7.6vw, 8.25rem);
+  --text-giant--line-height: 0.9;
+  --text-giant--letter-spacing: -0.04em;
+  --text-display: clamp(2.25rem, 1.5rem + 3vw, 4rem);
   --text-display--line-height: 1.02;
   --text-display--letter-spacing: -0.035em;
-  --text-h2: clamp(2rem, 1.5rem + 2vw, 3.25rem);
-  --text-h2--line-height: 1.05;
-  --text-h2--letter-spacing: -0.03em;
-  --text-h3: clamp(1.5rem, 1.25rem + 1vw, 2rem);
-  --text-h3--line-height: 1.15;
-  --text-h3--letter-spacing: -0.02em;
+  --text-h2: clamp(2.25rem, 1.4rem + 3.2vw, 4.25rem);
+  --text-h2--line-height: 1;
+  --text-h2--letter-spacing: -0.035em;
+  --text-h3: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  --text-h3--line-height: 1.1;
+  --text-h3--letter-spacing: -0.025em;
   --text-lede: 1.1875rem;
   --text-lede--line-height: 1.55;
 }
@@ -83,6 +106,7 @@
   html {
     background: var(--bg);
     -webkit-text-size-adjust: 100%;
+    scrollbar-color: var(--line-strong) var(--bg);
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -111,10 +135,6 @@
     text-wrap: pretty;
   }
 
-  html {
-    scrollbar-color: var(--line-strong) var(--bg);
-  }
-
   input,
   textarea {
     caret-color: var(--accent);
@@ -128,12 +148,12 @@
   :focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
-    border-radius: var(--radius-sm);
+    border-radius: 6px;
   }
 
-  /* Sections clear the sticky nav when jumped to. */
+  /* Sections clear the floating nav when jumped to. */
   [id] {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 6rem;
   }
 
   a,
@@ -145,7 +165,7 @@
 @layer components {
   .container-page {
     width: 100%;
-    max-width: 76rem;
+    max-width: 80rem;
     margin-inline: auto;
     padding-inline: 1rem;
   }
@@ -154,6 +174,95 @@
     .container-page {
       padding-inline: 2rem;
     }
+  }
+
+  /*
+   * Glass panel: translucent surface over the aurora, with a 1px edge and a
+   * top highlight for refraction. Solid fallback when transparency is reduced
+   * or backdrop-filter is unsupported.
+   */
+  .glass {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    box-shadow:
+      inset 0 1px 0 var(--glass-highlight),
+      0 30px 60px -40px rgb(var(--shadow-tint) / 0.6);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    backdrop-filter: blur(18px) saturate(150%);
+  }
+
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass {
+      background: var(--surface);
+    }
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .glass {
+      background: var(--surface);
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+  }
+
+  /*
+   * Aurora: three large soft colour fields that drift slowly. Sits behind
+   * content (absolute, pointer-events none). Each field is a radial gradient
+   * rather than a blurred shape: same softness, no costly blur filter to
+   * rasterise on phones. Transform-only animation.
+   */
+  .aurora {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: var(--aurora-opacity);
+  }
+
+  .aurora > span {
+    position: absolute;
+    border-radius: 9999px;
+    background: radial-gradient(closest-side, var(--glow), transparent);
+    will-change: transform;
+  }
+
+  .aurora > span:nth-child(1) {
+    width: 55vmax;
+    height: 55vmax;
+    left: -15vmax;
+    top: -20vmax;
+    --glow: var(--aurora-a);
+  }
+
+  .aurora > span:nth-child(2) {
+    width: 45vmax;
+    height: 45vmax;
+    right: -12vmax;
+    top: -5vmax;
+    --glow: var(--aurora-b);
+  }
+
+  .aurora > span:nth-child(3) {
+    width: 40vmax;
+    height: 40vmax;
+    left: 25%;
+    bottom: -25vmax;
+    --glow: var(--aurora-c);
+  }
+
+  /*
+   * Blueprint dot grid for the hero: the same drafting-sheet idea as the
+   * stack cross-section. Faded out toward the edges with a radial mask.
+   */
+  .blueprint {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(color-mix(in oklab, var(--ink) 22%, transparent) 1px, transparent 1px);
+    background-size: 28px 28px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+    opacity: 0.5;
   }
 
   /* Pressable feedback: fast, subtle, transform only. */
@@ -187,58 +296,8 @@
   .link-draw:focus-visible {
     background-size: 100% 1px;
   }
-}
 
-/*
- * Reduced motion removes movement (press scale, hover nudges, slide-ins)
- * but keeps colour and opacity changes, which still explain state.
- * Motion-driven components handle their own fallback via useReducedMotion.
- */
-@media (prefers-reduced-motion: reduce) {
-  .pressable:active {
-    transform: none;
-  }
-
-  .motion-nudge {
-    translate: none !important;
-    rotate: none !important;
-  }
-}
-
-@keyframes menu-in {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-}
-
-/* ---------------------------------------------------------------------------
- * Motion layer (CSS side). Movement is gated behind no-preference; under
- * reduced motion everything renders in its final state.
- * ------------------------------------------------------------------------- */
-
-/*
- * Hero words rise a short way and come into focus. They start at 1% opacity
- * (not 0) and unclipped, so the browser paints the headline at full size on the
- * first frame and Largest Contentful Paint is not held back by the animation.
- */
-@keyframes rise-in {
-  from {
-    opacity: 0.01;
-    transform: translateY(0.35em);
-    filter: blur(8px);
-  }
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-}
-
-@layer components {
-  /* Hero headline: each word rises into focus, one after another. */
+  /* Hero headline words (animated below). */
   .word {
     display: inline-block;
   }
@@ -273,37 +332,95 @@
     }
   }
 
-  /* Case study detail: groups step in once the panel opens. */
-  .cs-item {
+  /* Tech marquee: two copies of the list side by side, scrolled by exactly one copy. */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+  }
+}
+
+/*
+ * Reduced motion removes movement (press scale, hover nudges, slide-ins, drift)
+ * but keeps colour and opacity changes, which still explain state.
+ * Motion-driven components handle their own fallback via useReducedMotion.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .pressable:active {
+    transform: none;
+  }
+
+  .motion-nudge {
+    translate: none !important;
+    rotate: none !important;
+  }
+}
+
+@keyframes menu-in {
+  from {
     opacity: 0;
-    transition:
-      opacity 400ms var(--ease-out),
-      translate 500ms var(--ease-out);
-    transition-delay: calc(var(--i, 0) * 70ms + 80ms);
+    transform: translateY(-6px);
   }
+}
 
-  [data-open="true"] .cs-item {
-    opacity: 1;
+/*
+ * Hero words rise a short way and come into focus. They start at 1% opacity
+ * (not 0) and unclipped, so the browser paints the headline at full size on the
+ * first frame and Largest Contentful Paint is not held back by the animation.
+ */
+@keyframes rise-in {
+  from {
+    opacity: 0.01;
+    transform: translateY(0.35em);
+    filter: blur(10px);
   }
+}
 
-  /* Screenshot links: lift toward the pointer, with a slate-tinted shadow. */
-  .shot-link {
-    transition:
-      translate 320ms var(--ease-out),
-      box-shadow 320ms var(--ease-out);
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
   }
+}
 
-  @media (hover: hover) and (pointer: fine) {
-    .shot-link:hover {
-      box-shadow: 0 24px 48px -28px rgb(var(--shadow-tint) / 0.45);
-    }
+@keyframes drift-a {
+  50% {
+    transform: translate3d(12vmax, 8vmax, 0) scale(1.1);
+  }
+}
+
+@keyframes drift-b {
+  50% {
+    transform: translate3d(-10vmax, 10vmax, 0) scale(0.9);
+  }
+}
+
+@keyframes drift-c {
+  50% {
+    transform: translate3d(8vmax, -10vmax, 0) scale(1.15);
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .word {
-    animation: rise-in 900ms var(--ease-out) both;
-    animation-delay: calc(var(--i) * 70ms + 80ms);
+    animation: rise-in 1000ms var(--ease-out) both;
+    animation-delay: calc(var(--i) * 80ms + 100ms);
   }
 
   .enter {
@@ -316,17 +433,66 @@
     animation-duration: 360ms;
   }
 
-  .cs-item {
-    translate: 0 14px;
+  .aurora > span:nth-child(1) {
+    animation: drift-a 22s var(--ease-in-out) infinite;
   }
 
-  [data-open="true"] .cs-item {
-    translate: 0 0;
+  .aurora > span:nth-child(2) {
+    animation: drift-b 26s var(--ease-in-out) infinite;
   }
 
-  @media (hover: hover) and (pointer: fine) {
-    .shot-link:hover {
-      translate: 0 -6px;
-    }
+  .aurora > span:nth-child(3) {
+    animation: drift-c 30s var(--ease-in-out) infinite;
+  }
+
+  .marquee-track {
+    animation: marquee 40s linear infinite;
+  }
+
+  /* Pause the marquee while someone is reading it. */
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .live-dot::after {
+    animation: pulse-ring 2s var(--ease-out) infinite;
+  }
+}
+
+/* Case study dialog: dimmed, blurred page behind; page scroll locked while open. */
+.case-dialog::backdrop {
+  background: rgb(var(--shadow-tint) / 0.55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+:root:not(.dark) .case-dialog::backdrop {
+  background: rgb(11 26 29 / 0.35);
+}
+
+html:has(.case-dialog[open]) {
+  overflow: hidden;
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.case-dialog[open]::backdrop {
+  animation: backdrop-in 250ms var(--ease-out);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .case-dialog[open] {
+    animation: dialog-in 320ms var(--ease-out);
   }
 }

@@ -1,64 +1,67 @@
-import { Medal, Trophy } from "@phosphor-icons/react/dist/ssr";
+import { Certificate, Code, Medal, Trophy } from "@phosphor-icons/react/dist/ssr";
 import { achievements } from "@/data/content";
 import { CountUp } from "@/components/motion/CountUp";
-import { Reveal, RevealGroup, RevealHeading, RevealItem } from "@/components/motion/Reveal";
+import { RevealGroup, RevealHeading, RevealItem } from "@/components/motion/Reveal";
 
 export function Achievements() {
   return (
-    <section data-nav="" aria-labelledby="achievements-title" className="container-page py-20 md:py-28">
-      <RevealHeading id="achievements-title" className="text-h2 font-semibold">
+    <section data-nav="" aria-labelledby="achievements-title" className="container-page py-24 md:py-32">
+      <RevealHeading id="achievements-title" className="font-display text-h2 font-bold">
         Achievements
       </RevealHeading>
 
-      <div className="mt-12 grid gap-16 md:mt-16 lg:grid-cols-12 lg:gap-10">
-        <div className="lg:col-span-7">
-          <RevealGroup as="ul" className="grid gap-10 sm:grid-cols-2">
-            {achievements.wins.map((win, i) => {
-              const Icon = i === 0 ? Trophy : Medal;
-              return (
-                <RevealItem as="li" key={win.event} className="group/win">
-                  <Icon
-                    size={28}
-                    weight="duotone"
-                    aria-hidden
-                    className="motion-nudge text-accent transition-[translate,rotate] duration-500 ease-(--ease-out) group-hover/win:-translate-y-1 group-hover/win:-rotate-8"
-                  />
-                  <p className="mt-4 text-h3 font-semibold">{win.title}</p>
-                  <p className="mt-1 text-lede">{win.event}</p>
-                  <p className="text-muted">{win.by}</p>
-                </RevealItem>
-              );
-            })}
-          </RevealGroup>
-          <Reveal delay={0.15}>
-            <ul className="mt-12 space-y-2 border-t border-line pt-6 text-muted">
-              {achievements.practice.map((item) => (
-                <li key={item}>
-                  <CountUp text={item} />
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
+      <RevealGroup className="mt-12 grid gap-4 md:mt-16 lg:grid-cols-12">
+        {achievements.wins.map((win, i) => {
+          const Icon = i === 0 ? Trophy : Medal;
+          return (
+            <RevealItem
+              key={win.event}
+              className="glass group/win relative overflow-hidden rounded-[var(--radius-panel)] p-7 lg:col-span-4"
+            >
+              {/* Winner gets the coral glow, runner-up the teal one. */}
+              <span
+                aria-hidden
+                className={`absolute -right-10 -top-10 size-40 rounded-full blur-3xl ${i === 0 ? "bg-accent/30" : "bg-teal/25"}`}
+              />
+              <Icon
+                size={36}
+                weight="duotone"
+                aria-hidden
+                className={`motion-nudge relative transition-[translate,rotate] duration-500 ease-(--ease-out) group-hover/win:-translate-y-1 group-hover/win:-rotate-8 ${i === 0 ? "text-accent" : "text-teal"}`}
+              />
+              <p className="relative mt-6 font-display text-h3 font-bold">{win.title}</p>
+              <p className="relative mt-1 text-lede">{win.event}</p>
+              <p className="relative text-muted">{win.by}</p>
+            </RevealItem>
+          );
+        })}
 
-        <div className="lg:col-span-5">
-          <Reveal>
-            <h3 className="text-[0.9375rem] font-semibold">Certifications</h3>
-          </Reveal>
-          <RevealGroup as="ul" className="mt-4 divide-y divide-line border-y border-line">
-            {achievements.certifications.map((cert) => (
-              <RevealItem
-                as="li"
-                key={cert.name}
-                className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-4"
-              >
-                <span className="font-medium">{cert.name}</span>
-                <span className="text-sm text-muted">{cert.issuer}</span>
-              </RevealItem>
+        <RevealItem className="glass rounded-[var(--radius-panel)] p-7 lg:col-span-4">
+          <Code size={36} weight="duotone" aria-hidden className="text-teal" />
+          <ul className="mt-6 space-y-3">
+            {achievements.practice.map((item) => (
+              <li key={item} className="text-lede">
+                <CountUp text={item} />
+              </li>
             ))}
-          </RevealGroup>
-        </div>
-      </div>
+          </ul>
+        </RevealItem>
+
+        <RevealItem className="glass rounded-[var(--radius-panel)] p-7 lg:col-span-12">
+          <h3 className="flex items-center gap-3 font-display text-xl font-bold">
+            <Certificate size={24} weight="duotone" aria-hidden className="text-accent" />
+            Certifications
+          </h3>
+          <ul className="mt-5 grid gap-3 md:grid-cols-3">
+            {achievements.certifications.map((cert) => (
+              <li key={cert.name} className="border-t border-line pt-3">
+                <p className="font-semibold">{cert.name}</p>
+                <p className="text-sm text-muted">{cert.issuer}</p>
+              </li>
+            ))}
+          </ul>
+        </RevealItem>
+      </RevealGroup>
     </section>
   );
 }

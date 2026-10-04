@@ -18,7 +18,7 @@ export function ThemeToggle() {
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-      className="pressable inline-flex size-11 items-center justify-center rounded text-ink hover:bg-surface hover:text-accent"
+      className="pressable inline-flex size-11 items-center justify-center rounded-full text-ink hover:bg-ink/[0.07] hover:text-accent"
     >
       {mounted ? (
         // Keyed on the theme so the new icon turns in each time it swaps.

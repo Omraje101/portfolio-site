@@ -1,10 +1,12 @@
 import { SiteNav } from "@/components/nav/SiteNav";
 import { About } from "@/components/sections/About";
 import { Achievements } from "@/components/sections/Achievements";
+import { AmbientGlows } from "@/components/sections/AmbientGlows";
 import { Contact } from "@/components/sections/Contact";
 import { Experience } from "@/components/sections/Experience";
 import { Footer } from "@/components/sections/Footer";
 import { Hero } from "@/components/sections/Hero";
+import { Marquee } from "@/components/sections/Marquee";
 import { MoreProjects } from "@/components/sections/MoreProjects";
 import { Skills } from "@/components/sections/Skills";
 import { Work } from "@/components/sections/Work";
@@ -13,8 +15,10 @@ export default function Home() {
   return (
     <>
       <SiteNav />
-      <main id="main">
+      <main id="main" className="relative isolate">
+        <AmbientGlows />
         <Hero />
+        <Marquee />
         <About />
         <Work />
         <MoreProjects />

@@ -49,12 +49,12 @@ export function ContactForm({ email }: { email: string }) {
   }
 
   const field =
-    "mt-2 block w-full rounded border border-line-strong bg-surface px-4 text-base text-ink placeholder:text-muted transition-colors duration-150 hover:border-ink focus:border-accent focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent aria-invalid:border-danger";
+    "mt-2 block w-full rounded-2xl border border-line-strong bg-surface/70 px-4 text-base text-ink placeholder:text-muted transition-colors duration-150 hover:border-ink focus:border-accent focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent aria-invalid:border-danger";
   const error = "mt-2 text-sm font-medium text-danger";
 
   return (
-    <form noValidate onSubmit={onSubmit} onBlur={onBlur} className="border-t border-line pt-8 lg:border-t-0 lg:pt-2">
-      <h3 className="text-[0.9375rem] font-semibold">Write to me here</h3>
+    <form noValidate onSubmit={onSubmit} onBlur={onBlur} className="glass rounded-[var(--radius-panel)] p-5 sm:p-7">
+      <h3 className="font-display text-xl font-bold">Write to me here</h3>
       <p className="mt-1 text-sm text-muted">This opens your email app with the message filled in.</p>
 
       <div className="mt-6">
@@ -102,7 +102,7 @@ export function ContactForm({ email }: { email: string }) {
         <Magnetic>
           <button
             type="submit"
-            className="pressable sweep group inline-flex h-12 items-center gap-2 rounded bg-accent px-5 font-medium text-accent-ink [--sweep:var(--ink)] hover:text-bg"
+            className="pressable sweep group inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 font-semibold text-accent-ink [--sweep:var(--ink)] hover:text-bg"
           >
             <PaperPlaneTilt
               size={18}

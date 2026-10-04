@@ -3,10 +3,11 @@ import { ExternalLink } from "@/components/ui/ExternalLink";
 
 export function Footer() {
   return (
-    <footer className="border-t border-line">
-      <div className="container-page flex flex-col gap-6 py-10 md:flex-row md:items-center md:justify-between">
-        <p className="text-sm text-muted">
-          © {new Date().getFullYear()} {site.name}. Built with Next.js.
+    <footer className="container-page pb-10">
+      <div className="flex flex-col gap-6 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
+        <p className="flex items-center gap-2 text-sm text-muted">
+          <span aria-hidden className="size-2 rounded-full bg-gradient-to-br from-teal to-accent" />© {new Date().getFullYear()}{" "}
+          {site.name}. Built with Next.js.
         </p>
         <ul className="flex flex-wrap gap-x-8 text-sm">
           <li>

@@ -42,7 +42,7 @@ export function MobileMenu({ items, resume }: { items: Item[]; resume: string })
         aria-controls="mobile-menu"
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen((o) => !o)}
-        className="pressable inline-flex size-11 items-center justify-center rounded hover:bg-surface"
+        className="pressable inline-flex size-11 items-center justify-center rounded-full hover:bg-ink/[0.07]"
       >
         {open ? <X size={22} aria-hidden /> : <List size={22} aria-hidden />}
       </button>
@@ -51,7 +51,7 @@ export function MobileMenu({ items, resume }: { items: Item[]; resume: string })
         ref={panelRef}
         id="mobile-menu"
         hidden={!open}
-        className="absolute inset-x-0 top-16 border-b border-line bg-bg px-4 pb-6 pt-2 motion-safe:animate-[menu-in_200ms_var(--ease-out)]"
+        className="glass absolute inset-x-0 top-[calc(100%+0.5rem)] rounded-[var(--radius-panel)] bg-surface px-5 pb-5 pt-2 motion-safe:animate-[menu-in_200ms_var(--ease-out)]"
       >
         <ul className="flex flex-col">
           {items.map((item, i) => (
@@ -73,7 +73,7 @@ export function MobileMenu({ items, resume }: { items: Item[]; resume: string })
         <a
           href={resume}
           download
-          className="enter enter-fast pressable mt-4 inline-flex h-12 w-full items-center justify-center rounded bg-accent font-medium text-accent-ink"
+          className="enter enter-fast pressable mt-4 inline-flex h-12 w-full items-center justify-center rounded-full bg-accent font-semibold text-accent-ink"
           style={{ "--d": `${items.length * 45 + 40}ms` } as React.CSSProperties}
         >
           Download résumé

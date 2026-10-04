@@ -36,7 +36,7 @@ export function ScreenshotSlot({
         className="h-full w-full object-cover object-top transition-transform duration-700 ease-(--ease-out) group-hover:scale-[1.02]"
       />
     );
-    const frame = `overflow-hidden rounded border border-line bg-surface ${className}`;
+    const frame = `overflow-hidden rounded-[var(--radius-shot)] bg-surface-2 ${className}`;
 
     if (href) {
       return (
@@ -62,7 +62,7 @@ export function ScreenshotSlot({
 
   return (
     <figure
-      className={`flex flex-col justify-between rounded border border-dashed border-line-strong bg-surface p-4 text-muted sm:p-5 ${className}`}
+      className={`flex flex-col justify-between rounded-[var(--radius-shot)] border border-dashed border-line-strong bg-surface p-4 text-muted sm:p-5 ${className}`}
       style={{ aspectRatio: ratio }}
     >
       <figcaption className="text-sm font-medium text-ink">Screenshot to add</figcaption>
